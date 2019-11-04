@@ -1,0 +1,82 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "here map suggestions",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "HelloWorldIntent",
+                    "slots": [],
+                    "samples": [
+                        "hello",
+                        "how are you",
+                        "say hi world",
+                        "say hi",
+                        "hi",
+                        "say hello world",
+                        "say hello"
+                    ]
+                },
+                {
+                    "name": "LocationsuggestionIntent",
+                    "slots": [
+                        {
+                            "name": "suggestionkey",
+                            "type": "suggestions"
+                        }
+                    ],
+                    "samples": [
+                        "tell the suggestions for cognizant",
+                        "location for cognizant"
+                    ]
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.FallbackIntent",
+                    "samples": []
+                }
+            ],
+            "types": [
+                {
+                    "name": {
+                        "value": "capgemini"
+                    }
+                },
+                {
+                    "name": {
+                        "value": "tcs"
+                    }
+                },
+                {
+                    "name": {
+                        "value": "accenture"
+                    }
+                },
+                {
+                    "name": {
+                        "value": "wipro"
+                    }
+                },
+                {
+                    "name": {
+                        "value": "cognizant"
+                    }
+                }
+            ]
+        }
+    }
+}

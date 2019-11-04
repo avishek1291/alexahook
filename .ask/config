@@ -1,0 +1,75 @@
+{
+  "deploy_settings": {
+    "default": {
+      "skill_id": "amzn1.ask.skill.c7b4ff42-540d-41db-a3c1-a207fd7acb5f",
+      "was_cloned": false,
+      "merge": {},
+      "resources": {
+        "manifest": {
+          "eTag": "3a0a360c114aa499534ad6f9a3b3103a"
+        },
+        "interactionModel": {
+          "en-AU": {
+            "eTag": "2712519d88bc3863503e138bcd74d8f8"
+          },
+          "de-DE": {
+            "eTag": "f70ec7f55ac6a33b0b6769e4c9bc9520"
+          },
+          "en-IN": {
+            "eTag": "db465ceac930b4eac20025c6c19ed34a"
+          },
+          "en-CA": {
+            "eTag": "5f3c54dce95abc20b596149162934562"
+          },
+          "en-US": {
+            "eTag": "ae840c8f410e23fb430ed0a4d8f627da"
+          },
+          "es-MX": {
+            "eTag": "6ecbac3228c5352218eb74e80eb3238b"
+          },
+          "en-GB": {
+            "eTag": "aded3cd8f590425e954d57b2cc80aa04"
+          },
+          "es-US": {
+            "eTag": "938008e3f5ac88bec91a126634927752"
+          },
+          "hi-IN": {
+            "eTag": "3beafc09c4a044f091dbe029def3938e"
+          },
+          "pt-BR": {
+            "eTag": "79c30d6a0b0db19976a623b69155e7f8"
+          },
+          "es-ES": {
+            "eTag": "8e1ac61ecdbbb6891b0d0df8726e668f"
+          },
+          "fr-FR": {
+            "eTag": "bfc2bec5827c66e51f412a219853538c"
+          },
+          "ja-JP": {
+            "eTag": "0dc371c7e990b89b416109797d442b29"
+          },
+          "fr-CA": {
+            "eTag": "63ae854bae7238a6ed161161fdc60a2a"
+          },
+          "it-IT": {
+            "eTag": "a6d38cd96b6b0f0e3cc858cfcce3f1c9"
+          }
+        },
+        "lambda": [
+          {
+            "alexaUsage": [
+              "custom/default"
+            ],
+            "arn": "arn:aws:lambda:us-east-1:173479838717:function:ask-custom-Suggestions-default",
+            "awsRegion": "us-east-1",
+            "codeUri": "lambda/custom",
+            "functionName": "ask-custom-Suggestions-default",
+            "handler": "index.handler",
+            "revisionId": "2ad8f277-aad6-4cf8-b49f-b0755b2207c3",
+            "runtime": "nodejs8.10"
+          }
+        ]
+      }
+    }
+  }
+}

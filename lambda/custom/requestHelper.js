@@ -1,0 +1,38 @@
+const axios  =  require('axios');
+
+const app_id = 'AbpMlscxuETlDHg91GGV';
+const app_code='UYMXPafUbKIDewS_23tY7g';
+
+const requestHelper =  {};
+ const getLocation =  async (suggestionKey) => {
+     try{
+        const mapUri =  `https://places.cit.api.here.com/places/v1/autosuggest
+        ?at=22.572645,88.363892`
+        const suggestions  =  await axios.get(mapUri+`&q=${suggestionKey}&app_id=${app_id}&app_code=${app_code}`);
+     
+        return suggestions.data.results;
+     }catch(e){
+        console.log('error response', e)
+     }
+   
+}
+
+
+const sendLocation = async (payload) => {
+
+const postUri =  'http://localhost:9000';
+const result  =  await axios.post(postUri+'/location', payload);
+return result;
+
+}
+
+const testFunction = async (suggestionkey) => {
+const result  =   await getLocation(suggestionkey);
+// console.log(result, 'result');
+const send  = await sendLocation(result);
+// console.log('received result', send)
+}
+requestHelper.getSuggetion =  getLocation;
+requestHelper.sendSuggetion =  sendLocation;
+// testFunction('cognizant');
+module.exports =  requestHelper;
