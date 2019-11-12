@@ -15,7 +15,7 @@ const LaunchRequestHandler = {
     );
   },
   handle(handlerInput) {
-    const speakOutput = "Welcome to your skill location suggestion, how can I help you?";
+    const speakOutput = "Welcome to your skill location suggetions, how can I help you?";
 
     return handlerInput.responseBuilder
       .speak(speakOutput)
@@ -39,6 +39,24 @@ const HelloWorldIntentHandler = {
         //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
         .getResponse()
     );
+  }
+};
+
+const UrbanLayerIntentHandler = {
+  canHandle(handlerInput) {
+    return (
+      Alexa.getRequestType(handlerInput.requestEnvelope) === "IntentRequest" &&
+      Alexa.getIntentName(handlerInput.requestEnvelope) ===
+        "UrbanLayerIntent"
+    );
+  },
+  async handle(handlerInput) {
+    const locationresults = await requestHelper.showUrbanLayer();
+    const speakOutput = `here goes the urbanisation data`;
+    return handlerInput.responseBuilder
+      .speak(speakOutput)
+      .withShouldEndSession(false)
+      .getResponse();
   }
 };
 
@@ -214,7 +232,8 @@ exports.handler = Alexa.SkillBuilders.custom()
     CancelAndStopIntentHandler,
     FallbackIntentHandler,
     SessionEndedRequestHandler,
-    IntentReflectorHandler
+    IntentReflectorHandler,
+    UrbanLayerIntentHandler
   )
   .addErrorHandlers(ErrorHandler)
   .lambda();

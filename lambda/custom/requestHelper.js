@@ -20,10 +20,15 @@ const requestHelper =  {};
 
 const sendLocation = async (payload) => {
 
-const postUri =  'http://localhost:9000';
+
 const result  =  await axios.post(postUri+'/location', payload);
 return result;
 
+}
+
+const showUrbanLayer = async() => {
+   const postUri =  'http://localhost:9000';
+   const result  =  await axios.post(postUri+'/urbanLayer', {});
 }
 
 const testFunction = async (suggestionkey) => {
@@ -34,5 +39,6 @@ const send  = await sendLocation(result);
 }
 requestHelper.getSuggetion =  getLocation;
 requestHelper.sendSuggetion =  sendLocation;
+requestHelper.showUrbanLayer = showUrbanLayer;
 // testFunction('cognizant');
 module.exports =  requestHelper;

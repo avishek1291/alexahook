@@ -29,6 +29,16 @@
                     ]
                 },
                 {
+                    "name": "UrbanisationIntent",
+                    "slots": [],
+                    "samples": [
+                        "show urbanisation layer",
+                        "show urban areas",
+                        "show developed urban areas",
+                        "Urban layer"
+                    ]
+                },
+                {
                     "name": "LocationsuggestionIntent",
                     "slots": [
                         {
