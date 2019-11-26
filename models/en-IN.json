@@ -29,10 +29,10 @@
                     ]
                 },
                 {
-                    "name":"JenkinsIntentHandler",
+                    "name":"JenkinsIntent",
                     "samples": [
                         "start jenkins job",
-                        "start build job"
+                        "start build"
                     ]
                 },
                 {
