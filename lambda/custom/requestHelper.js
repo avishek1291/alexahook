@@ -31,6 +31,11 @@ const showUrbanLayer = async() => {
    const result  =  await axios.post(postUri+'/urbanLayer', {});
 }
 
+const jenkinsJobBuilder = async() => {
+   await axios.post("url", {});
+   return 'job created';
+}
+
 const testFunction = async (suggestionkey) => {
 const result  =   await getLocation(suggestionkey);
 // console.log(result, 'result');
@@ -40,5 +45,6 @@ const send  = await sendLocation(result);
 requestHelper.getSuggetion =  getLocation;
 requestHelper.sendSuggetion =  sendLocation;
 requestHelper.showUrbanLayer = showUrbanLayer;
+requestHelper.jenkinsJobBuilder =  jenkinsJobBuilder;
 // testFunction('cognizant');
 module.exports =  requestHelper;

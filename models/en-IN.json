@@ -29,13 +29,10 @@
                     ]
                 },
                 {
-                    "name": "UrbanisationIntent",
-                    "slots": [],
+                    "name":"JenkinsIntentHandler",
                     "samples": [
-                        "show urbanisation layer",
-                        "show urban areas",
-                        "show developed urban areas",
-                        "Urban layer"
+                        "start jenkins job",
+                        "start build job"
                     ]
                 },
                 {

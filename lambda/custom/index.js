@@ -42,23 +42,22 @@ const HelloWorldIntentHandler = {
   }
 };
 
-const UrbanLayerIntentHandler = {
-  canHandle(handlerInput) {
+const JenkinsIntentHandler =  {
+  canHandle(handlerInput){
     return (
       Alexa.getRequestType(handlerInput.requestEnvelope) === "IntentRequest" &&
-      Alexa.getIntentName(handlerInput.requestEnvelope) ===
-        "UrbanLayerIntent"
+      Alexa.getIntentName(handlerInput.requestEnvelope) === "JenkinsJobIntent"
     );
   },
-  async handle(handlerInput) {
-    const locationresults = await requestHelper.showUrbanLayer();
-    const speakOutput = `here goes the urbanisation data`;
-    return handlerInput.responseBuilder
+  async handle(){
+   const speakOutput =  await requestHelper.jenkinsJobBuilder();
+   return (
+    handlerInput.responseBuilder
       .speak(speakOutput)
-      .withShouldEndSession(false)
-      .getResponse();
+      .getResponse()
+  );
   }
-};
+}
 
 const LocationsuggestionIntentHandler = {
   canHandle(handlerInput) {
@@ -233,7 +232,7 @@ exports.handler = Alexa.SkillBuilders.custom()
     FallbackIntentHandler,
     SessionEndedRequestHandler,
     IntentReflectorHandler,
-    UrbanLayerIntentHandler
+    JenkinsIntentHandler
   )
   .addErrorHandlers(ErrorHandler)
   .lambda();
