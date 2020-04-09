@@ -11,7 +11,7 @@ const requestHelper =  {};
       //   const mapUri =  `https://places.cit.api.here.com/places/v1/autosuggest
       //   ?at=22.572645,88.363892`
       //   const suggestions  =  await axios.get(mapUri+`&q=${suggestionKey}&app_id=${app_id}&app_code=${app_code}`);
-       await axios.get(`jenkinsUrl${token}`);
+       await axios.get(`${jenkinsUrl}${token}`);
         return `build started for ${suggestionKey}`;
      }catch(e){
         console.log('error response', e)
