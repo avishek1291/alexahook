@@ -52,6 +52,7 @@ localDebugger.listen(portNumber, host, () => {
 localDebugger.on('connection', (socket) => {
     console.log(`Connection from: ${socket.remoteAddress}:${socket.remotePort}`);
     socket.on('data', (data) => {
+        //console.log('data on socket', data)
         const body = JSON.parse(data.toString().split(httpBodyDelimeter).pop());
         // console.log(`Request envelope: ${Object.keys(body)}`);
         skillInvoker[lambdaHandlerName](body, null, (_invokeErr, response) => {
@@ -98,7 +99,7 @@ function getLambdaHandlerName() {
 
 // eslint-disable-next-line consistent-return
 function getAndValidateSkillInvokerFile() {
-    const fileNameArgument = getArgument('skillEntryFile');
+    const fileNameArgument = './index.js'; // getArgument('skillEntryFile');
     console.log('fileNameArgs', fileNameArgument);
     if (!fs.existsSync(fileNameArgument)) {
         throw new Error(`File not found: ${fileNameArgument}`);

@@ -1,7 +1,7 @@
 {
     "interactionModel": {
         "languageModel": {
-            "invocationName": "here map suggestions",
+            "invocationName": "deployment assistant",
             "intents": [
                 {
                     "name": "AMAZON.CancelIntent",

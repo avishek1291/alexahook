@@ -15,7 +15,7 @@ const LaunchRequestHandler = {
     );
   },
   handle(handlerInput) {
-    const speakOutput = "Welcome to your skill location suggetions, how can I help you?";
+    const speakOutput = "Welcome to your skill cloud assistant, how can I help you?";
 
     return handlerInput.responseBuilder
       .speak(speakOutput)
@@ -28,11 +28,13 @@ const HelloWorldIntentHandler = {
   canHandle(handlerInput) {
     return (
       Alexa.getRequestType(handlerInput.requestEnvelope) === "IntentRequest" &&
-      Alexa.getIntentName(handlerInput.requestEnvelope) === "HelloWorldIntent"
+      Alexa.getIntentName(handlerInput.requestEnvelope) === "JenkinsIntent"
     );
   },
   async handle(handlerInput) {
+    const projectName = Alexa.getSlotValue(handle.requestEnvelope, 'projectName')
     let speakOutput = "Bye avishek";
+    
     return (
       handlerInput.responseBuilder
         .speak(speakOutput)
@@ -46,14 +48,17 @@ const JenkinsIntentHandler =  {
   canHandle(handlerInput){
     return (
       Alexa.getRequestType(handlerInput.requestEnvelope) === "IntentRequest" &&
-      Alexa.getIntentName(handlerInput.requestEnvelope) === "JenkinsJobIntent"
+      Alexa.getIntentName(handlerInput.requestEnvelope) === "JenkinsIntent"
     );
   },
-  async handle(){
-   const speakOutput =  await requestHelper.jenkinsJobBuilder();
+  async handle(handlerInput){
+   // const speakOutput =  await requestHelper.jenkinsJobBuilder();
+   // console.log('speak out put>>>>', speakOutput)
+   let speakOutput = "hi jenkins!";
    return (
     handlerInput.responseBuilder
       .speak(speakOutput)
+      .withShouldEndSession(false)
       .getResponse()
   );
   }
@@ -75,8 +80,8 @@ const LocationsuggestionIntentHandler = {
     // console.log('slot value&&&', slotValue);
     const locationresults = await requestHelper.getSuggetion(slotValue);
     // console.log("cognizant results", locationresults);
-    const speakOutput = `I recieved  for keyword ${slotValue} ${locationresults.length}results`;
-    await requestHelper.sendSuggetion(locationresults);
+    const speakOutput = locationresults; // `I recieved  for keyword ${slotValue} ${locationresults.length}results`;
+    // await requestHelper.sendSuggetion(locationresults);
     return handlerInput.responseBuilder
       .speak(speakOutput)
       .withShouldEndSession(false)
@@ -226,13 +231,14 @@ exports.handler = Alexa.SkillBuilders.custom()
   .addRequestHandlers(
     LaunchRequestHandler,
     HelloWorldIntentHandler,
+    JenkinsIntentHandler,
     LocationsuggestionIntentHandler,
     HelpIntentHandler,
     CancelAndStopIntentHandler,
     FallbackIntentHandler,
     SessionEndedRequestHandler,
     IntentReflectorHandler,
-    JenkinsIntentHandler
+    
   )
   .addErrorHandlers(ErrorHandler)
   .lambda();
